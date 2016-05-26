@@ -4,40 +4,86 @@
 	<meta charset="UTF-8">
 	<title>Title</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/main.css">
 	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<style>
+
 		#bienvenida
 		{
+			position: absolute;
+			width: 300px;
 			border: 1px solid #CCC;
-			margin: 10px;
+			margin-top: 1em;
+			margin-left: 50%;
+			left: -150px;
 		}
 		#chat
 		{
+			width: 700px; 
+			height: 500px;
 			margin: 10px;
 			border: 1px solid #CCC;
 			display: none;
+			margin-left: 50%;
+			left: -350px;
+			position: absolute; 
+			top: -3em;
+			border: 2px solid red;
 		}
+		.cabecera {height: 6em; background-color: #F523CB;}
+		.f-plomo{background-color: #ECECDA;}
+		.f-blanco{background-color: #fff;}
+		.pd1{padding: 1em;}
+		.cuerpo{height: 500px; position: relative;}
+		.centrar{text-align: center;}
+		a:hover{text-decoration: none;}
+		.cabeza{
+			p{display: 50px;}
+			a{display: inline-block;}
+		}
+
 	</style>
 </head>
 <body>
-	<div id="bienvenida" class="well">
-		<h3>Hola, por favor ingresa tu nombre para entrar al chat</h3>
-		<input type="text" id="nombre" class="form-control">
-		<button onclick="guardarNombre()">Entrar</button>
-	</div>
+	<div class="container ">
+		<div class="row cabecera"></div>
+		<div class="row cuerpo f-plomo">
 
-	<div id="chat" class="well">
-		<h1>Bienvenid@ a mi super chat</h1>
-		<p>Solo puedes envíar mensajes, en una siguiente versión también lo verás!!</p>
-		<input type="text" id="mensaje" class="form-control">
-		<button onclick="enviarMensaje()">Enviar mensaje</button>
-		<button onclick="limpiarMensajes()">Limpiar mensajes</button>
-		<ul id="lista_mensajes" class="list-group"></ul>
+			<div id="bienvenida" class="centrar f-blanco pd1">
+				<h4>Hola, por favor ingresa tu nombre para entrar al chat</h4>
+				<input type="text" id="nombre" class="form-control"></br>
+				<button onclick="guardarNombre()">Entrar</button>
+			</div>
+			
+			<div id="chat" class="row  ">
+				<div class="col-md-5">
+					<div class="row cabeza pd1 f-plomo">
+						<div class="col-sm-8"><img class="img-responsive" src="../image/logocodeacademy.png" alt=""></div>
+						<div class="col-md-1"><a class="glyphicon glyphicon-comment"></a></div>
+						<div class="col-md-1"><a class="glyphicon glyphicon-option-vertical"></a></div>
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="row cabeza pd1 f-plomo">
+						<div class="col-sm-2"><img class="img-responsive" src="../image/logocodeacademy.png" alt=""></div>
+						<div class="col-sm-8"><p>Laboratoria Peru</p></div>
+						<div class="col-md-1"><a class="glyphicon glyphicon-paperclip"></a></div>
+						<div class="col-md-1"><a class="glyphicon glyphicon-option-vertical"></a></div>
+					</div>
+					<div class="row pd1">
+						<ul id="lista_mensajes" class="list-group"></ul>
+						<input type="text" id="mensaje" class="form-control">
+						<button onclick="enviarMensaje()">Enviar mensaje</button>
+				<!-- 	<button onclick="limpiarMensajes()">Limpiar mensajes</button> -->
+					</div>
+					
+					
+				</div>
 
-		<p>
-			<small style="font-size:10px;">Si haces uso de este chat aceptas eliminar los break's por el resto de tu vida</small>
-		</p>
+			</div>	
+		</div>
 	</div>
 
 	<script>
